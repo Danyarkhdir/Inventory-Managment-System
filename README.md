@@ -7,4 +7,8 @@ Team project using Java language.
 - Admins can see available/issued items.
 - All the items in inventory with their details will store in database.
 - Each items has its own ID.
-- there are multiple brunchs items in invetory.
+- there are items of different brunches in inventory.
+- Coustmers with their own name/address and phone number.
+- Each coustmer can have many orders.
+- When an item in inventory will all over/a little bit or expired, the system have to warn the admin.
+- Bill that contains details about every order.
