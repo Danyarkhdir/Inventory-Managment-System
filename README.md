@@ -10,7 +10,7 @@ Team project using Java language.
 - Each items has its own ID.
 - there are items of different brunches in inventory.
 - Coustmers with their own name/address and phone number.
-- it must show all orders 
+- it must show all orders.
 - Each coustmer can have many orders.
 - When an item in inventory will all over/a little bit or expired, the system have to warn the admin.
 - Bill that contains details about every order.
