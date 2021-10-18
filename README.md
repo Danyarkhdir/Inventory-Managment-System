@@ -1,19 +1,32 @@
 # Inventory-Managment-System
 Team project using Java language.
-## **The requirments:**
+## **The Requirments:**
 
-- Admins can enter system with their username and password.
+###Admin
 
-- Admins have permission to add/view/edit and delete items.
-- Admins can see available/issued items.
-- All the items in inventory with their details will store in database.
-- Each items has its own ID.
-- there are items of different brunches in inventory.
-- Coustmers with their own name/address and phone number.
-- it must show all orders.
-- Each coustmer can have many orders.
-- When an item in inventory will all over/a little bit or expired, the system have to warn the admin.
-- Bill that contains details about every order.
+-We have two admins in our system.
+-Admins have their own username and password.
+-Admins have permission to add, view, edit, delete items.
+-Admins have permission to order all over items from their brunchs.
+
+###Costumer  
+
+-We can have 100 costumers.
+-Each costumer has his/her own name, address and phone number.
+-Each Costumer can order many Items.
+-Costumers can see their bill at the end.
+
+###Items
+
+-We can have 100 items.
+-Each item has its own id, name, price.
+-May two items or more have same brunch.
+
+###Order
+
+-In each order there are costumer and item details.
+-In each order costumer can order one or more items.
+-when costumers finish thier order total price will be displayed.  
 
 ## Team members:
 - Danyar Khdir 
