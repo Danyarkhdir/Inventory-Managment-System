@@ -1,19 +1,18 @@
-public class Items {
+import java.io.Serializable;
+
+public class Items implements Serializable {
     private int itemId;
     private String itemName;
-    private String itemBrand;
     private double itemPrice;
+
     public Items(){
         itemId=0;
         itemName="No Name";
-        itemBrand
-="No Brunch";
         itemPrice=0.0;
     }
-    public Items(int itemId,String itemName,String itemBrand,double itemPrice){
+    public Items(int itemId,String itemName,double itemPrice){
         this.itemId=itemId;
         this.itemName=itemName;
-        this.itemBrand=itemBrand;
         this.itemPrice=itemPrice;
     }
     public void setItemId(int itemId) {
@@ -28,15 +27,8 @@ public class Items {
     public String getItemName() {
         return itemName;
     }
-    public void setItemBrunch(String itemBrand) {
-        this.itemBrand
- = itemBrand
-;
-    }
-    public String getItemBrunch() {
-        return itemBrand
-;
-    }
+   
+    
     public void setItemPrice(double itemPrice) {
         this.itemPrice = itemPrice;
     }
@@ -44,8 +36,11 @@ public class Items {
         return itemPrice;
     }
     public String toString() {
-        return "Item Id : "+itemId+"\nItem Name : "+itemName+"\nBrand : "+itemBrand+"\nItems Price : "+itemPrice;
+        return "Item Id : "+itemId+"\nItem Name : "+itemName+"\nItems Price : "+itemPrice;
     }
+    
+        
+    
     
 
 

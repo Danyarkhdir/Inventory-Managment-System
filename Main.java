@@ -1,11 +1,15 @@
+import java.util.*;
 public class Main{
     public static void main(String[] args) {
-            Costumer costumer1=new Costumer("muhamad",07501234567,"Barzan-Erbil-Kurdistan");
-        Items item1=new Items(12, "Coca Cola", "Coca Company",5000);
-       Order order1=new Order(costumer1,item1,3);
-       Bill bill1=new Bill(order1);
-       System.out.println(bill1);
+    Admin admin1=new Admin("Shadya","132435");
+    Order order1=new Order();
+    admin1.addOrder(order1);
+    order1.addItemToOrder(new Items(1, "Pc", 200000));
+    order1.addItemToOrder(new Items(13,"headset",25000));
+    System.out.println(admin1);
+    System.out.println(order1);
+    
+    
 
-      
     }
 }
