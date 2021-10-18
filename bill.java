@@ -1,24 +1,24 @@
-public class bill {
-    order Order;
+public class Bill {
+    Order order;
     public double totalPrice;
-    public bill(){
-        Order=new order();
+    public Bill(){
+        order=new Order();
         totalPrice=0;
     }
-    public bill(order Order){
-        this.Order=Order;
+    public Bill(Order order){
+        this.order=order;
     }
-    public void setOrder(order order) {
-        Order = order;
+    public void setOrder(Order order) {
+        this.order = order;
     }
-    public order getOrder() {
-        return Order;
+    public Order getOrder() {
+        return order;
     }
     public double totalCalc(){
-        return Order.getNumOfItems()*Order.getItemInfo().getItemPrice();
+        return order.getNumOfItems()*order.getItemInfo().getItemPrice();
     }
 
     public String toString() {
-        return Order.toString()+"\nTotal Price = "+totalCalc()+" IQD";
+        return order.toString()+"\nTotal Price = "+totalCalc()+" IQD";
     }
 }

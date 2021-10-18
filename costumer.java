@@ -1,13 +1,13 @@
-public class costumer {
+public class Costumer {
     private String name;
     private long phoneNumber;
     private String address; 
-    public  costumer() {
+    public  Costumer() {
         name="unknown";
         phoneNumber=0000000000l;
         address="no Address";
     }
-    public  costumer(String name,long phoneNumber,String address) {
+    public  Costumer(String name,long phoneNumber,String address) {
         this.name=name;
         this.phoneNumber=phoneNumber;
         this.address=address;

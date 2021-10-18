@@ -1,26 +1,26 @@
-public class order {
-    private costumer cosntumerInfo;
-    private items itemInfo;
+public class Order {
+    private Costumer costumerInfo;
+    private Items itemInfo;
     private int numOfItems;
-    public order(){
-        cosntumerInfo=new costumer();
-        itemInfo=new items();
+    public Order(){
+        costumerInfo=new Costumer();
+        itemInfo=new Items();
     }
-    public order(costumer costumerInfo,items itemInfo,int numberOfItems){
-        this.cosntumerInfo=costumerInfo;
+    public Order(Costumer CostumerInfo,Items itemInfo,int numberOfItems){
+        this.costumerInfo=CostumerInfo;
         this.itemInfo=itemInfo;
         this.numOfItems=numberOfItems;
     }
-    public void setCosntumerInfo(costumer cosntumerInfo) {
-        this.cosntumerInfo = cosntumerInfo;
+    public void setcostumerInfo(Costumer costumerInfo) {
+        this.costumerInfo = costumerInfo;
     }
-    public costumer getCosntumerInfo() {
-        return cosntumerInfo;
+    public Costumer getcostumerInfo() {
+        return costumerInfo;
     }
-    public void setItemInfo(items itemInfo) {
+    public void setItemInfo(Items itemInfo) {
         this.itemInfo = itemInfo;
     }
-    public items getItemInfo() {
+    public Items getItemInfo() {
         return itemInfo;
     }
     public void setNumOfItems(int numOfItems) {
@@ -31,6 +31,6 @@ public class order {
     }
     
     public String toString() {
-        return cosntumerInfo.toString()+"\n"+itemInfo.toString()+"\nNumber of Items : "+numOfItems;
+        return costumerInfo.toString()+"\n"+itemInfo.toString()+"\nNumber of Items : "+numOfItems;
     }
 }

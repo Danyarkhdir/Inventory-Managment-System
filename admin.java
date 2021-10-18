@@ -1,11 +1,11 @@
-public class admin {
+public class Admin {
     private String username;
     private String password;
-    public admin(){
+    public Admin(){
         username="Admin";
         password="Admin";
     }
-    public admin(String username,String password){
+    public Admin(String username,String password){
         this.username=username;
         this.password=password;
     }

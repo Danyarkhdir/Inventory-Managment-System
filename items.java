@@ -1,16 +1,16 @@
-public class items {
+public class Items {
     private int itemId;
     private String itemName;
     private String itemBrand;
     private double itemPrice;
-    public items(){
+    public Items(){
         itemId=0;
         itemName="No Name";
         itemBrand
 ="No Brunch";
         itemPrice=0.0;
     }
-    public items(int itemId,String itemName,String itemBrand,double itemPrice){
+    public Items(int itemId,String itemName,String itemBrand,double itemPrice){
         this.itemId=itemId;
         this.itemName=itemName;
         this.itemBrand=itemBrand;
