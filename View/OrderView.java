@@ -1,6 +1,6 @@
 package View;
 import Models.*;
-
+import Controller.*;
 import java.util.Scanner;
 
 import Controller.*;
@@ -12,27 +12,14 @@ public static void orderView(){
     System.out.print("Choose an Option : ");
     int choice=sc.nextInt();
     switch (choice) {
-        case 1:
-            addItemtoOrder();
-            break;
-        case 2:
-            deleteItemFromOrder();
-            break;
-        case 3:
-            AdminView.availableItems();
-            break;
-        case 4:
-            showOrder();
-            break;
-        case 5:
-            options();
-            break;
-        case 0:
-            bol=false;
-            break;
-        default:
-        System.out.println("No Options with this number");
-            break;
+        case 1->addItemtoOrder();
+        case 2->deleteItemFromOrder();
+        case 3->AdminView.availableItems(); 
+        case 4 -> showOrder();
+        case 5 ->Orders.totalPrice();
+        case 6 ->options();
+        case 0 -> bol=false;
+        default -> System.out.println("No Options with this number"); 
     }
 }
 }
@@ -41,7 +28,8 @@ public static void orderView(){
         System.out.println("2. remove item from Order");
         System.out.println("3. show available items");
         System.out.println("4. show current order");
-        System.out.println("5. Options");
+        System.out.println("5. TotalPrice");
+        System.out.println("6. Options");
         System.out.println("0. Exit");
     }
     public static void addItemtoOrder(){

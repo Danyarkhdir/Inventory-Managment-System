@@ -15,6 +15,7 @@ public class AdminView {
     boolean bol=true;
     int choice;
        while (bol) {
+           actions();
            System.out.print("Choose a Choice : ");
            choice=scanner.nextInt();
            switch (choice) {
@@ -58,6 +59,7 @@ public class AdminView {
      System.out.print("Enter Address : ");
      String address = scanner.next();
      Costumers.addCostumer(new Costumer(id,name,phone,address));
+     System.out.println("Enter Ordered Items ");
      OrderView.orderView();
    }
    public static void deleteCostumer(){
