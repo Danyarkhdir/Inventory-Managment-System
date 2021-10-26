@@ -1,5 +1,4 @@
-import java.util.*;
-import java.io.*;
+
 public class Admin {
     private String username;
     private String password;

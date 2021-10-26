@@ -1,9 +1,10 @@
+package Controller;
 import java.util.*;
+import Models.*;
 import java.io.*;
 public class DataFile {
-    LinkedList<Costumer> costumers =new LinkedList<>();
-    LinkedList<Items> items =new LinkedList<>();
-    LinkedList<Order> orders =new LinkedList<>();
+
+    public LinkedList<Order> orders =new LinkedList<>();
     public  boolean writeCostumerInFile(Costumer costumer){
         try{
             FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\BAWAR CENTER\\Desktop\\javaProject\\Inventory-Managment-System\\Files\\costumers.txt");
@@ -29,14 +30,14 @@ public class DataFile {
                     try {
                         Costumer costumer = (Costumer) objectInputStream.readObject();
                         if (costumer != null) {
-                            costumers.add(costumer);
+                            Costumers.costumers.add(costumer);
                         }
                     } catch (EOFException e){
                         return true;
-                        
                     }
+                    objectInputStream.close(); 
                 }
-
+                
         } catch (FileNotFoundException e){
             System.out.println("file not found.");
             return false;
@@ -82,6 +83,7 @@ public class DataFile {
                     } catch (EOFException e){
                         return true;
                     }
+                    objectInputStream.close();
                 }
 
         } catch (FileNotFoundException e){
@@ -124,11 +126,12 @@ public class DataFile {
                     try {
                         Items item = (Items) objectInputStream.readObject();
                         if (item != null) {
-                            items.add(item);
+                            Item.items.add(item);
                         }
                     } catch (EOFException e){
                         return true;
                     }
+                    objectInputStream.close();
                 }
 
         } catch (FileNotFoundException e){
