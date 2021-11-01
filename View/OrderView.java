@@ -1,9 +1,6 @@
 package View;
-import Models.*;
 import Controller.*;
 import java.util.Scanner;
-
-import Controller.*;
 public class OrderView {
 static Scanner sc = new Scanner(System.in);
 public static void orderView(){
@@ -35,13 +32,20 @@ public static void orderView(){
     public static void addItemtoOrder(){
         System.out.println("Enter Item Id : ");
         int itemId=sc.nextInt();
+        if(Item.findItem(itemId)!=-1)
         Orders.addItemtoOrder(Item.items.get(Item.findItem(itemId))); 
+        else
+        System.out.println("No Item with this ID");
     }
 
     public static void deleteItemFromOrder() {
         System.out.println("Enter Item Id : ");
         int itemId=sc.nextInt();
+        if(Item.findItem(itemId)!=-1)
         Orders.deleteItemFromOrder(Item.items.get(Item.findItem(itemId)));
+        else
+        System.out.println("No Item with this ID");
+        
     }
 
     public static void showOrder() {

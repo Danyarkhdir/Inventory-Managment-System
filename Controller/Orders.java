@@ -28,6 +28,7 @@ public class Orders {
         for (int i = 0; i < OrderedItems.size(); i++) {
             totalprice+=OrderedItems.get(i).getItemPrice();
         }
+        System.out.println("Total price = "+totalprice+" IQD");
 
     }
 

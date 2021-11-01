@@ -1,4 +1,5 @@
 package View;
+import java.util.Optional;
 import java.util.Scanner;
 import Controller.*;
 import Models.Costumer;
@@ -10,6 +11,7 @@ public class AdminView {
     }
     
    public static Scanner scanner=new Scanner(System.in);
+   static Optional<String> option;
 
    public  static void login (){
     boolean bol=true;
@@ -52,14 +54,19 @@ public class AdminView {
    public static void addNewCostumer(){
      System.out.print("Enter Id : ");
      int id = scanner.nextInt();
+     scanner.nextLine();
      System.out.print("Enter Name : ");
      String name = scanner.next();
+     scanner.nextLine();
      System.out.print("Enter Phone Number : ");
      String phone = scanner.next();
+     scanner.nextLine();
      System.out.print("Enter Address : ");
      String address = scanner.next();
+     scanner.nextLine();
      Costumers.addCostumer(new Costumer(id,name,phone,address));
      System.out.println("Enter Ordered Items ");
+     OrderView.options();
      OrderView.orderView();
    }
    public static void deleteCostumer(){
@@ -102,7 +109,11 @@ public class AdminView {
    public static void deleteItem(){
     System.out.print("Enter Item Id : ");
     int id = scanner.nextInt();
-    Item.deleteItem(id);
+    if(Item.findItem(id)!=-1)
+        Item.deleteItem(id);
+    else
+        System.out.println("No Item with this ID");
+    
    }
    public static void updateItem(){
     System.out.print("Enter Item Id that you want to change : ");
