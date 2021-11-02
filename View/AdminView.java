@@ -28,7 +28,7 @@ public class AdminView {
               case 5 -> viewCostumers();
               case 6 -> addItem();
               case 7 -> deleteItem();
-              case 8 -> updateCostumer();
+              case 8 -> updateItem();
               case 9 -> availableItems();
               case 0 -> System.exit(0);
               default -> System.out.println("Please choose from 0 to 9");
@@ -46,7 +46,7 @@ public class AdminView {
        System.out.println("5. View Costumers");
        System.out.println("6. Add new Item");
        System.out.println("7. Delete Item ");
-       System.out.println("8. Update Costumer Info");
+       System.out.println("8. Update Item Info");
        System.out.println("9. View Available Items ");
        System.out.println("0. Quit");
    }
