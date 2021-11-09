@@ -37,7 +37,13 @@ public class AdminView {
 
 
    }
-
+   public static void Actions() {
+    System.out.println("1. Add New Costumer");
+    System.out.println("2. Delete Costumer");
+    System.out.println("3. Add new Item");
+    System.out.println("4. Delete Item ");
+    System.out.println("0. Quit");
+}
    public static void actions() {
        System.out.println("1. Actions");
        System.out.println("2. Add New Costumer");
@@ -65,9 +71,9 @@ public class AdminView {
      String address = scanner.next();
      scanner.nextLine();
      Costumers.addCostumer(new Costumer(id,name,phone,address));
-     System.out.println("Enter Ordered Items ");
-     OrderView.options();
-     OrderView.orderView();
+    //  System.out.println("Enter Ordered Items ");
+    //  OrderView.options();
+    //  OrderView.orderView();
    }
    public static void deleteCostumer(){
        System.out.print("Enter Id of Costumer : ");

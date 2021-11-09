@@ -13,6 +13,15 @@ public class Items implements Serializable {
         this.itemName=itemName;
         this.itemPrice=itemPrice;
     }
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
+    }
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+    public void setItemPrice(double itemPrice) {
+        this.itemPrice = itemPrice;
+    }
     public int getItemId() { return itemId; }
     public String getItemName() { return itemName; }
     public double getItemPrice() { return itemPrice; }

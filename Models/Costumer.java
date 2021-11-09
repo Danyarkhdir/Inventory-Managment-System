@@ -14,6 +14,18 @@ public class Costumer implements Serializable {
         this.phoneNumber=phoneNumber;
         this.address=address;
     }
+    public void setCostumerId(int costumerId) {
+        this.costumerId = costumerId;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
     public int getCostumerId() { return costumerId; }
     public String getName() { return name; }
     public String getPhoneNumber() { return phoneNumber; }

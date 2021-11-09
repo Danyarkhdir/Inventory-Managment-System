@@ -5,14 +5,18 @@ public class Costumers {
 public DataFile dataFile =new DataFile();
  public static LinkedList<Costumer> costumers =new LinkedList<>();
 Costumer costumer;
+public static boolean addcostumer;
+public static boolean delcostumer;
         public static void addCostumer(Costumer costumer){
             int costumerindex = findCostumer(costumer.getCostumerId());
             if (costumerindex > -1) {
                 System.out.println("costumer with  id [ "+costumer.getCostumerId()+" ] is already exist , cannot add");
+                addcostumer=false;
             }
             else{
             costumers.add(costumer);
             System.out.println("costumer with id [ "+costumer.getCostumerId()+" ] added");
+            addcostumer=true;
             }
             
         }
@@ -20,10 +24,12 @@ Costumer costumer;
             int costumerindex = findCostumer(costumerId);
             if (costumerindex == -1) {
                 System.out.println("no costumer with Id  [ " + costumerId + " ] is available.\ndeleting costumer failed.");
+                delcostumer=false;
             }
             else{
             costumers.remove(costumerindex);
             System.out.println("costumer with Id : " + costumerId + " was successfully deleted.");
+            delcostumer=true;
             }
     
         }
