@@ -10,11 +10,11 @@ public class Server {
     public static void main(String[] args) throws IOException{
         ServerSocket serverSocket = null;
         try {
-        serverSocket = new ServerSocket(4444);
+        serverSocket = new ServerSocket(25);
         System.out.println("Server started...");
         System.out.println("Waiting for a Client...");
         } catch (IOException e) {
-        System.err.println("Could not listen on port: 4444.");
+        System.err.println("Could not listen on port: 25.");
         System.exit(1);
         }
         Socket clientSocket = null;
