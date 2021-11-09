@@ -10,7 +10,7 @@ public class Server {
     public static void main(String[] args) throws IOException{
         ServerSocket serverSocket = null;
         try {
-        serverSocket = new ServerSocket(25);
+        serverSocket = new ServerSocket(4444);
         System.out.println("Server started...");
         System.out.println("Waiting for a Client...");
         } catch (IOException e) {
@@ -30,7 +30,7 @@ public class Server {
             BufferedReader in = new BufferedReader( new
             InputStreamReader(clientSocket.getInputStream()));
             String inputLine, outputLine;
-            out.println("Welcome to Inventory server , Enter: (1) for actions (0) for exit");
+            out.println("Welcome to Inventory server");
             while ((inputLine = in.readLine()) != null) {
                 outputLine=inputLine;
             if (outputLine.toLowerCase().equals("bye")) System.exit(0);
