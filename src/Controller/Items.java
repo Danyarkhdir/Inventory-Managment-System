@@ -11,12 +11,12 @@ public class Items {
     public static boolean additem;
     public static boolean delitem;
 
-    public void fetchAndSetItems(){
+    public static void fetchAndSetItems(){
         Packet<Item> packet = itemController.get(new Packet<>(3));
         items= packet.getItems();
     }
 
-    public void setItems(){
+    public static void saveItems(){
         Packet<Item> packet = new Packet<>(4);
         packet.setItems(items);
         itemController.get(packet);
@@ -26,6 +26,7 @@ public class Items {
 
 
     public static void addItem(Item item){
+        fetchAndSetItems();
         int itemIndex = findItem(item.getItemId());
         if (itemIndex > -1) {
             System.out.println("Item with  id [ "+ item.getItemId()+" ] is already exist , cannot add");
@@ -35,10 +36,12 @@ public class Items {
         Items.items.add(item);
         System.out.println("Item with id [ "+ item.getItemId()+" ] added");
         additem=true;
+        saveItems();
         }
         
     }
     public static void deleteItem(int itemId) {
+        fetchAndSetItems();
         int itemIndex = findItem(itemId);
         if (itemIndex == -1) {
             System.out.println("no Item with Id  : " + itemId + " is available.\ndeleting Item failed.");
@@ -48,6 +51,7 @@ public class Items {
         System.out.println("Item with Id : " + itemId + " was successfully deleted.");
         items.remove(itemIndex);
         delitem=true;
+        saveItems();
         }
 
     }
@@ -55,6 +59,7 @@ public class Items {
         return items.set(findItem(itm.getItemId()), itm);
     }
     public static int findItem(int itemId){
+        fetchAndSetItems();
         for (int i = 0; i < items.size(); i++) {
             Item item = Items.items.get(i);
             if (item.getItemId()==itemId) {
