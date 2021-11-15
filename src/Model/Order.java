@@ -1,4 +1,4 @@
-package Models;
+package Model;
 import java.io.*;
 public class Order implements Serializable{
     private int orderId;

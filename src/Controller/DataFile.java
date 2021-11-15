@@ -1,6 +1,9 @@
 package Controller;
+import Model.Costumer;
+import Model.Item;
+import Model.Order;
+
 import java.util.*;
-import Models.*;
 import java.io.*;
 public class DataFile {
 
@@ -101,9 +104,9 @@ public class DataFile {
         return true;
     }
 
-    public  boolean writeItemInFile(Items item){
+    public  boolean writeItemInFile(Item item){
         try{
-            FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\BAWAR CENTER\\Desktop\\javaProject\\Inventory-Managment-System\\Files\\items.txt");
+            FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\BAWAR CENTER\\Desktop\\javaProject\\Inventory-Managment-System\\Files\\item.txt");
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(item);
             fileOutputStream.close();
@@ -124,9 +127,9 @@ public class DataFile {
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
                 while (true) {
                     try {
-                        Items item = (Items) objectInputStream.readObject();
+                        Item item = (Item) objectInputStream.readObject();
                         if (item != null) {
-                            Item.items.add(item);
+                            Items.items.add(item);
                         }
                     } catch (EOFException e){
                         return true;

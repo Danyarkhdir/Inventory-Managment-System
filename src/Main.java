@@ -1,8 +1,14 @@
 import java.util.*;
 
+import Controller.ClientServerConnection;
+import Controller.Costumers;
+import Model.Costumer;
 import View.AdminView;
 public class Main{
     public static void main(String []args){
+        ClientServerConnection.startConnection();
+
+
         Scanner sc=new Scanner(System.in);
         while (true) {
             System.out.print("Enter USERNAME : ");
@@ -13,12 +19,12 @@ public class Main{
                 AdminView.login();
             }
             System.out.println("username or password is incorrect");
-            System.out.println("Do You want Exit Whole program ? \nType \n-yes\n-no");  
+            System.out.println("Do You want Exit Whole program ? \nType \n-yes\n-no");
             String exit=sc.next();
             if (exit.toLowerCase().equals("yes")) {
                 sc.close();
-               break; 
-            }  
+               break;
+            }
         }
        
 

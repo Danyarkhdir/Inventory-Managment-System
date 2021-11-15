@@ -9,14 +9,30 @@ public static void orderView(){
     System.out.print("Choose an Option : ");
     int choice=sc.nextInt();
     switch (choice) {
-        case 1->addItemtoOrder();
-        case 2->deleteItemFromOrder();
-        case 3->AdminView.availableItems(); 
-        case 4 -> showOrder();
-        case 5 ->Orders.totalPrice();
-        case 6 ->options();
-        case 0 -> bol=false;
-        default -> System.out.println("No Options with this number"); 
+        case 1:
+            addItemtoOrder();
+            break;
+        case 2:
+            deleteItemFromOrder();
+            break;
+        case 3:
+            AdminView.availableItems();
+            break;
+        case 4:
+            showOrder();
+            break;
+        case 5:
+            Orders.totalPrice();
+            break;
+        case 6:
+            options();
+            break;
+        case 0:
+            bol=false;
+            break;
+        default:
+            System.out.println("No Options with this number");
+            break;
     }
 }
 }
@@ -32,8 +48,8 @@ public static void orderView(){
     public static void addItemtoOrder(){
         System.out.println("Enter Item Id : ");
         int itemId=sc.nextInt();
-        if(Item.findItem(itemId)!=-1)
-        Orders.addItemtoOrder(Item.items.get(Item.findItem(itemId))); 
+        if(Items.findItem(itemId)!=-1)
+        Orders.addItemtoOrder(Items.items.get(Items.findItem(itemId)));
         else
         System.out.println("No Item with this ID");
     }
@@ -41,15 +57,15 @@ public static void orderView(){
     public static void deleteItemFromOrder() {
         System.out.println("Enter Item Id : ");
         int itemId=sc.nextInt();
-        if(Item.findItem(itemId)!=-1)
-        Orders.deleteItemFromOrder(Item.items.get(Item.findItem(itemId)));
+        if(Items.findItem(itemId)!=-1)
+        Orders.deleteItemFromOrder(Items.items.get(Items.findItem(itemId)));
         else
         System.out.println("No Item with this ID");
         
     }
 
     public static void showOrder() {
-        System.out.println(Orders.OrderedItems);
+        System.out.println(Orders.orderedItems);
     }
 
 }

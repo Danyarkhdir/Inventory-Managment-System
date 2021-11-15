@@ -2,8 +2,8 @@ package View;
 import java.util.Optional;
 import java.util.Scanner;
 import Controller.*;
-import Models.Costumer;
-import Models.Items;
+import Model.Costumer;
+import Model.Item;
 
 public class AdminView {
     public AdminView(){
@@ -21,17 +21,39 @@ public class AdminView {
            System.out.print("Choose a Choice : ");
            choice=scanner.nextInt();
            switch (choice) {
-              case 1 -> actions();
-              case 2 -> addNewCostumer();
-              case 3 -> deleteCostumer();
-              case 4 -> updateCostumer();
-              case 5 -> viewCostumers();
-              case 6 -> addItem();
-              case 7 -> deleteItem();
-              case 8 -> updateItem();
-              case 9 -> availableItems();
-              case 0 -> System.exit(0);
-              default -> System.out.println("Please choose from 0 to 9");
+               case 1:
+                   actions();
+                   break;
+               case 2:
+                  addNewCostumer();
+                  break;
+               case 3:
+                   deleteCostumer();
+                   break;
+               case 4:
+                   updateCostumer();
+                   break;
+               case 5:
+                   viewCostumers();
+                   break;
+               case 6:
+                   addItem();
+                   break;
+               case 7:
+                   deleteItem();
+                   break;
+               case 8:
+                   updateItem();
+                   break;
+               case 9:
+                   availableItems();
+                   break;
+               case 0:
+                   System.exit(0);
+                   break;
+               default:
+                   System.out.println("Please choose from 0 to 9");
+                   break;
            }
        }
 
@@ -45,6 +67,7 @@ public class AdminView {
     System.out.println("0. Quit");
 }
    public static void actions() {
+       System.out.println("\n\n\n\n");
        System.out.println("1. Actions");
        System.out.println("2. Add New Costumer");
        System.out.println("3. Delete Costumer");
@@ -53,7 +76,7 @@ public class AdminView {
        System.out.println("6. Add new Item");
        System.out.println("7. Delete Item ");
        System.out.println("8. Update Item Info");
-       System.out.println("9. View Available Items ");
+       System.out.println("9. View Available Item ");
        System.out.println("0. Quit");
    }
 
@@ -71,7 +94,7 @@ public class AdminView {
      String address = scanner.next();
      scanner.nextLine();
      Costumers.addCostumer(new Costumer(id,name,phone,address));
-    //  System.out.println("Enter Ordered Items ");
+    //  System.out.println("Enter Ordered Item ");
     //  OrderView.options();
     //  OrderView.orderView();
    }
@@ -110,13 +133,13 @@ public class AdminView {
     String name = scanner.next();
     System.out.print("Enter Price : ");
     double price=scanner.nextDouble();
-    Item.addItem(new Items(id,name,price));
+    Items.addItem(new Item(id,name,price));
    }
    public static void deleteItem(){
     System.out.print("Enter Item Id : ");
     int id = scanner.nextInt();
-    if(Item.findItem(id)!=-1)
-        Item.deleteItem(id);
+    if(Items.findItem(id)!=-1)
+        Items.deleteItem(id);
     else
         System.out.println("No Item with this ID");
     
@@ -124,7 +147,7 @@ public class AdminView {
    public static void updateItem(){
     System.out.print("Enter Item Id that you want to change : ");
     int id=scanner.nextInt();
-    if (Item.findItem(id)==-1) {
+    if (Items.findItem(id)==-1) {
         System.out.println("No item with this id [ "+id+" ]");
     }
     else{
@@ -132,11 +155,11 @@ public class AdminView {
         String name = scanner.next();
         System.out.print("New Price : ");
         Double price = scanner.nextDouble();
-         Item.updateItem(new Items(id, name, price));
+         Items.updateItem(new Item(id, name, price));
     }
    } 
    public  static void availableItems(){
-    System.out.println(Item.items.clone());
+    System.out.println(Items.items.clone());
    }
 
 } 

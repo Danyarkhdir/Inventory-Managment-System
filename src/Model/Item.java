@@ -1,14 +1,14 @@
-package Models;
+package Model;
 import java.io.Serializable;
 
-public class Items implements Serializable {
+public class Item implements Serializable {
     private int itemId;
     private String itemName;
     private double itemPrice;
 
-    public Items(){
+    public Item(){
     }
-    public Items(int itemId,String itemName,double itemPrice){
+    public Item(int itemId, String itemName, double itemPrice){
         this.itemId=itemId;
         this.itemName=itemName;
         this.itemPrice=itemPrice;
@@ -26,7 +26,7 @@ public class Items implements Serializable {
     public String getItemName() { return itemName; }
     public double getItemPrice() { return itemPrice; }
     public String toString() {
-        return "Item Id : "+itemId+"\nItem Name : "+itemName+"\nItems Price : "+itemPrice;
+        return "Item Id : "+itemId+"\nItem Name : "+itemName+"\nItem Price : "+itemPrice;
     }
     
         
