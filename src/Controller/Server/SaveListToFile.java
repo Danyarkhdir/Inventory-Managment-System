@@ -39,10 +39,14 @@ public class SaveListToFile<T> {
             f.close();
 
         } catch (FileNotFoundException e){
+            System.out.println("Saved failed 1");
             return false;
         } catch (IOException e){
+            System.out.println("Saved failed 2");
+
             return false;
         }
+        System.out.println("Saved Success");
         return true;
     }
 

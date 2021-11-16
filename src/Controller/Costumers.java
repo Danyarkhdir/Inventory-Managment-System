@@ -22,7 +22,6 @@ public static ClientServerController<Costumer> customerController = new ClientSe
     }
 
         public static void addCostumer(Costumer costumer){
-            System.out.println("asdadasd");
             fetchAndSetCustomer();
             int costumerindex = findCostumer(costumer.getCostumerId());
             if (costumerindex > -1) {

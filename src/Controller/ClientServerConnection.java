@@ -14,7 +14,7 @@ public class ClientServerConnection {
     public static ObjectOutputStream objectOut;
     public static void startConnection(){
         try{
-            socket = new Socket("localhost",5000);
+            socket = new Socket("localhost",5002);
             socket.setTcpNoDelay(true);
             objectIn = new ObjectInputStream(socket.getInputStream());
             objectOut = new ObjectOutputStream(socket.getOutputStream());

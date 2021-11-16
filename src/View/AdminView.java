@@ -19,17 +19,39 @@ public class AdminView {
            System.out.print("Choose a Choice : ");
            choice=scanner.nextInt();
            switch (choice) {
-               case 1 -> actions();
-               case 2 -> addNewCostumer();
-               case 3 -> deleteCostumer();
-               case 4 -> updateCostumer();
-               case 5 -> viewCostumers();
-               case 6 -> addItem();
-               case 7 -> deleteItem();
-               case 8 -> updateItem();
-               case 9 -> availableItems();
-               case 0 -> bol = false;
-               default -> System.out.println("Please choose from 0 to 9");
+               case 1:
+                   actions();
+                   break;
+               case 2:
+                   addNewCostumer();
+                   break;
+               case 3:
+                   deleteCostumer();
+                   break;
+               case 4:
+                   updateCostumer();
+                   break;
+               case 5:
+                   viewCostumers();
+                   break;
+               case 6:
+                   addItem();
+                   break;
+               case 7:
+                   deleteItem();
+                   break;
+               case 8:
+                   updateItem();
+                   break;
+               case 9:
+                   availableItems();
+                   break;
+               case 0:
+                   bol = false;
+                   break;
+               default:
+                   System.out.println("Please choose from 0 to 9");
+                   break;
            }
        }
 
@@ -43,7 +65,7 @@ public class AdminView {
     System.out.println("0. Quit");
 }
    public static void actions() {
-       System.out.println("\n\n\n\n");
+       System.out.println("\n\n");
        System.out.println("1. Actions");
        System.out.println("2. Add New Costumer");
        System.out.println("3. Delete Costumer");

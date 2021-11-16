@@ -56,7 +56,7 @@ public class Server extends Thread{
     private Packet processPacket(Packet packet) {
         int packetMessage = packet.getMessage();
         if (packetMessage == 1) {
-            SaveListToFile<Costumer> costumerSaveListToFile = new SaveListToFile<>("File/costumers.txt");
+            SaveListToFile<Costumer> costumerSaveListToFile = new SaveListToFile<>("Inventory-Managment-System/File/costumers.txt");
             LinkedList<Costumer> costumers = costumerSaveListToFile.openList();
             if (costumers.isEmpty()) {
                 packet = new Packet(0);
@@ -65,14 +65,14 @@ public class Server extends Thread{
                 packet.setItems(costumers);
             }
         } else if (packetMessage == 2) {
-            SaveListToFile<Costumer> costomerSaveData = new SaveListToFile<>("File/costumers.txt");
+            SaveListToFile<Costumer> costomerSaveData = new SaveListToFile<>("Inventory-Managment-System/File/costumers.txt");
             if (costomerSaveData.saveListToFile(packet.getItems())) {
                 packet = new Packet<Costumer>(1);
             } else {
                 packet = new Packet<Costumer>(0);
             }
         } else if (packetMessage == 3) {
-            SaveListToFile<Item> itemsSaveListToFile = new SaveListToFile<>("File/items.txt");
+            SaveListToFile<Item> itemsSaveListToFile = new SaveListToFile<>("Inventory-Managment-System/File/items.txt");
             LinkedList<Item> items = itemsSaveListToFile.openList();
             if (items.isEmpty()) {
                 packet = new Packet(0);
@@ -81,14 +81,14 @@ public class Server extends Thread{
                 packet.setItems(items);
             }
         } else if (packetMessage == 4) {
-            SaveListToFile<Item> itemsSaveListToFile = new SaveListToFile<>("File/items.txt");
+            SaveListToFile<Item> itemsSaveListToFile = new SaveListToFile<>("Inventory-Managment-System/File/items.txt");
             if (itemsSaveListToFile.saveListToFile(packet.getItems())) {
                 packet = new Packet<Costumer>(1);
             } else {
                 packet = new Packet<Costumer>(0);
             }
         } else if (packetMessage == 5) {
-            SaveListToFile<Item> ordersSaveListToFile = new SaveListToFile<>("File/orders.txt");
+            SaveListToFile<Item> ordersSaveListToFile = new SaveListToFile<>("Inventory-Managment-System/File/orders.txt");
             LinkedList<Item> orders = ordersSaveListToFile.openList();
             if (orders.isEmpty()) {
                 packet = new Packet(0);
@@ -97,7 +97,7 @@ public class Server extends Thread{
                 packet.setItems(orders);
             }
         } else if (packetMessage == 6) {
-            SaveListToFile<Item> ordersSaveListToFile = new SaveListToFile<>("File/orders.txt");
+            SaveListToFile<Item> ordersSaveListToFile = new SaveListToFile<>("Inventory-Managment-System/File/orders.txt");
             if (ordersSaveListToFile.saveListToFile(packet.getItems())) {
                 packet = new Packet<Costumer>(1);
             } else {
