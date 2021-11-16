@@ -43,15 +43,14 @@ public class Orders {
     public static void totalPrice(){
         fetchAndSetOrders();
         double totalprice =0;
-        for (int i = 0; i < orderedItems.size(); i++) {
-            totalprice+= orderedItems.get(i).getItemPrice();
+        for (Item orderedItem : orderedItems) {
+            totalprice += orderedItem.getItemPrice();
         }
         System.out.println("Total price = "+totalprice+" IQD");
 
     }
 
     public static int findItemInOrder(int itemId){
-        fetchAndSetOrders();
         for (int i = 0; i < orderedItems.size(); i++) {
             Item item = orderedItems.get(i);
             if (item.getItemId()==itemId) {

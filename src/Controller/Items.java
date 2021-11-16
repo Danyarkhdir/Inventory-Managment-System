@@ -1,5 +1,4 @@
 package Controller;
-import Model.Costumer;
 import Model.Item;
 import Model.Packet;
 
@@ -33,7 +32,7 @@ public class Items {
             additem=false;
         }
         else{
-        Items.items.add(item);
+        items.add(item);
         System.out.println("Item with id [ "+ item.getItemId()+" ] added");
         additem=true;
         saveItems();
@@ -59,9 +58,8 @@ public class Items {
         return items.set(findItem(itm.getItemId()), itm);
     }
     public static int findItem(int itemId){
-        fetchAndSetItems();
         for (int i = 0; i < items.size(); i++) {
-            Item item = Items.items.get(i);
+            Item item = items.get(i);
             if (item.getItemId()==itemId) {
                return i; 
             }

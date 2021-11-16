@@ -1,5 +1,4 @@
 package View;
-import java.util.Optional;
 import java.util.Scanner;
 import Controller.*;
 import Model.Costumer;
@@ -11,7 +10,6 @@ public class AdminView {
     }
     
    public static Scanner scanner=new Scanner(System.in);
-   static Optional<String> option;
 
    public  static void login (){
     boolean bol=true;
@@ -21,39 +19,17 @@ public class AdminView {
            System.out.print("Choose a Choice : ");
            choice=scanner.nextInt();
            switch (choice) {
-               case 1:
-                   actions();
-                   break;
-               case 2:
-                  addNewCostumer();
-                  break;
-               case 3:
-                   deleteCostumer();
-                   break;
-               case 4:
-                   updateCostumer();
-                   break;
-               case 5:
-                   viewCostumers();
-                   break;
-               case 6:
-                   addItem();
-                   break;
-               case 7:
-                   deleteItem();
-                   break;
-               case 8:
-                   updateItem();
-                   break;
-               case 9:
-                   availableItems();
-                   break;
-               case 0:
-                   System.exit(0);
-                   break;
-               default:
-                   System.out.println("Please choose from 0 to 9");
-                   break;
+               case 1 -> actions();
+               case 2 -> addNewCostumer();
+               case 3 -> deleteCostumer();
+               case 4 -> updateCostumer();
+               case 5 -> viewCostumers();
+               case 6 -> addItem();
+               case 7 -> deleteItem();
+               case 8 -> updateItem();
+               case 9 -> availableItems();
+               case 0 -> bol = false;
+               default -> System.out.println("Please choose from 0 to 9");
            }
        }
 
@@ -94,9 +70,6 @@ public class AdminView {
      String address = scanner.next();
      scanner.nextLine();
      Costumers.addCostumer(new Costumer(id,name,phone,address));
-    //  System.out.println("Enter Ordered Item ");
-    //  OrderView.options();
-    //  OrderView.orderView();
    }
    public static void deleteCostumer(){
        System.out.print("Enter Id of Costumer : ");
@@ -129,17 +102,21 @@ public class AdminView {
    public static void addItem(){
     System.out.print("Enter Id : ");
     int id = scanner.nextInt();
+    scanner.nextLine();
     System.out.print("Enter Name : ");
-    String name = scanner.next();
+    String name = scanner.nextLine();
     System.out.print("Enter Price : ");
     double price=scanner.nextDouble();
+    scanner.nextLine();
     Items.addItem(new Item(id,name,price));
    }
    public static void deleteItem(){
     System.out.print("Enter Item Id : ");
     int id = scanner.nextInt();
-    if(Items.findItem(id)!=-1)
+    if(Items.findItem(id)!=-1) {
+        System.out.println("No Item with this ID");
         Items.deleteItem(id);
+    }
     else
         System.out.println("No Item with this ID");
     
@@ -154,12 +131,12 @@ public class AdminView {
         System.out.print("Enter Name : ");
         String name = scanner.next();
         System.out.print("New Price : ");
-        Double price = scanner.nextDouble();
+        double price = scanner.nextDouble();
          Items.updateItem(new Item(id, name, price));
     }
    } 
    public  static void availableItems(){
-    System.out.println(Items.items.clone());
+    System.out.println(Items.items.clone()+"\n");
    }
 
 } 

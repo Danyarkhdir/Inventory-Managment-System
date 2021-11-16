@@ -1,11 +1,9 @@
 package Controller; 
 import Model.Costumer;
-import Model.Item;
 import Model.Packet;
 
 import java.util.*;
 public class Costumers {
-//public DataFile dataFile =new DataFile();
  public static LinkedList<Costumer> costumers =new LinkedList<>();
 public static boolean addcostumer;
 public static boolean delcostumer;
@@ -24,7 +22,8 @@ public static ClientServerController<Costumer> customerController = new ClientSe
     }
 
         public static void addCostumer(Costumer costumer){
-        fetchAndSetCustomer();
+            System.out.println("asdadasd");
+            fetchAndSetCustomer();
             int costumerindex = findCostumer(costumer.getCostumerId());
             if (costumerindex > -1) {
                 System.out.println("costumer with  id [ "+costumer.getCostumerId()+" ] is already exist , cannot add");
@@ -57,7 +56,6 @@ public static ClientServerController<Costumer> customerController = new ClientSe
             return costumers.set(findCostumer(costumer.getCostumerId()), costumer);
         }
         public static int findCostumer(int costumerId){
-        fetchAndSetCustomer();
             for (int i = 0; i < costumers.size(); i++) {
                 Costumer costumer=costumers.get(i);
                 if (costumer.getCostumerId()==costumerId) {
