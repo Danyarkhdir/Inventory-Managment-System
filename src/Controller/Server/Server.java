@@ -4,6 +4,7 @@ import java.net.*;
 import java.util.LinkedList;
 import java.util.List;
 
+import Model.Admin;
 import Model.Costumer;
 import Model.Item;
 import Model.Packet;
@@ -16,16 +17,14 @@ public class Server extends Thread{
     @Override
     @SuppressWarnings("unchecked")
     public void run() {
-
         try{
-            System.out.println("Client Connected");
+            System.out.println("Client Connected\n");
             ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
             socket.setTcpNoDelay(true);
             Packet packet;
 
             while(true) {
-                System.out.println("1");
                 packet = (Packet) input.readObject();
                 int packetMessage = packet.getMessage();
                 System.out.println("Received Client input: " + packetMessage);
@@ -104,7 +103,23 @@ public class Server extends Thread{
                 packet = new Packet<Costumer>(0);
             }
         }
+        else if (packetMessage == 7) {
+            SaveListToFile<Admin> adminSaveListToFile = new SaveListToFile<>("Inventory-Managment-System/File/admins.txt");
+            LinkedList<Admin> admins = adminSaveListToFile.openList();
+            if (admins.isEmpty()) {
+                packet = new Packet(0);
+            } else {
+                packet = new Packet<Admin>(1);
+                packet.setItems(admins);
+            }
+        } else if (packetMessage == 8) {
+            SaveListToFile<Admin> adminSaveData = new SaveListToFile<>("Inventory-Managment-System/File/admins.txt");
+            if (adminSaveData.saveListToFile(packet.getItems())) {
+                packet = new Packet<Admin>(1);
+            } else {
+                packet = new Packet<Admin>(0);
+            }
+        }
         return packet;
     }
-    
-}
+    }

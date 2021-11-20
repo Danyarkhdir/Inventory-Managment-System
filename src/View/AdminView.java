@@ -20,32 +20,33 @@ public class AdminView {
            choice=scanner.nextInt();
            switch (choice) {
                case 1:
-                   actions();
-                   break;
-               case 2:
                    addNewCostumer();
                    break;
-               case 3:
+               case 2:
                    deleteCostumer();
                    break;
-               case 4:
+               case 3:
                    updateCostumer();
                    break;
-               case 5:
+               case 4:
                    viewCostumers();
                    break;
-               case 6:
+               case 5:
                    addItem();
                    break;
-               case 7:
+               case 6:
                    deleteItem();
                    break;
-               case 8:
+               case 7:
                    updateItem();
                    break;
-               case 9:
+               case 8:
                    availableItems();
                    break;
+               case 9:
+                   updateAdmin();
+                   break;
+
                case 0:
                    bol = false;
                    break;
@@ -58,24 +59,21 @@ public class AdminView {
 
    }
    public static void Actions() {
-    System.out.println("1. Add New Costumer");
-    System.out.println("2. Delete Costumer");
-    System.out.println("3. Add new Item");
-    System.out.println("4. Delete Item ");
-    System.out.println("0. Quit");
+
 }
    public static void actions() {
-       System.out.println("\n\n");
-       System.out.println("1. Actions");
-       System.out.println("2. Add New Costumer");
-       System.out.println("3. Delete Costumer");
-       System.out.println("4. Update Costumer Info");
-       System.out.println("5. View Costumers");
-       System.out.println("6. Add new Item");
-       System.out.println("7. Delete Item ");
-       System.out.println("8. Update Item Info");
-       System.out.println("9. View Available Item ");
-       System.out.println("0. Quit");
+       System.out.println("\n");
+       System.out.println("1. Add New Costumer");
+       System.out.println("2. Delete Costumer");
+       System.out.println("3. Update Costumer Info");
+       System.out.println("4. View Costumers");
+       System.out.println("5. Add new Item");
+       System.out.println("6. Delete Item ");
+       System.out.println("7. Update Item Info");
+       System.out.println("8. View Available Item ");
+       System.out.println("9. Change My Password");
+       System.out.println("0. Log Out");
+
    }
 
    public static void addNewCostumer(){
@@ -92,6 +90,11 @@ public class AdminView {
      String address = scanner.next();
      scanner.nextLine();
      Costumers.addCostumer(new Costumer(id,name,phone,address));
+     if(Costumers.addcostumer) {
+         System.out.println("Enter Items That Costumer Ordered :");
+         OrderView.options();
+         OrderView.orderView();
+     }
    }
    public static void deleteCostumer(){
        System.out.print("Enter Id of Costumer : ");
@@ -113,11 +116,13 @@ public class AdminView {
         String address = scanner.next();
         Costumer costumer=new Costumer(costumerId, name, phone, address);
          Costumers.updateCostumer(costumer);
+         Costumers.saveCostomers();
        }
        
        
    }
    public static void viewCostumers() {
+       Costumers.fetchAndSetCustomer();
       System.out.println(Costumers.costumers.clone());
    }
 
@@ -155,10 +160,37 @@ public class AdminView {
         System.out.print("New Price : ");
         double price = scanner.nextDouble();
          Items.updateItem(new Item(id, name, price));
+         Items.saveItems();
     }
-   } 
+   }
+    public static void updateAdmin() {
+        int adminIndex=Admins.findAdmin(MainView.Username);
+            System.out.println("Enter Old Password : ");
+            String oldPassword=scanner.next();
+            scanner.nextLine();
+            int count=0;
+            if (Admins.admins.get(adminIndex).getPassword().equals(oldPassword)) {
+            while(count<5) {
+                System.out.println("Enter New Password : ");
+                String newPassword = scanner.next();
+                scanner.nextLine();
+                System.out.println("Confirm New Password again : ");
+                String newPasswordagain = scanner.next();
+                scanner.nextLine();
+                if (newPassword.equals(newPasswordagain)){
+                    Admins.admins.get(adminIndex).setPassword(newPassword);
+                Admins.saveAdmins();
+                }
+                else { count++;
+                    System.out.println("Entered two Passwords not equal");
+                }
+            }
+            }else System.out.println("Old Password Incorrect");
+        }
+
    public  static void availableItems(){
-    System.out.println(Items.items.clone()+"\n");
+    Items.fetchAndSetItems();
+       System.out.println(Items.items.clone());
    }
 
 } 

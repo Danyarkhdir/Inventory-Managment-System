@@ -12,6 +12,7 @@ public static ClientServerController<Costumer> customerController = new ClientSe
 
     public static void fetchAndSetCustomer(){
         Packet<Costumer> packet = customerController.get(new Packet<>(1));
+        if (packet!=null)
         costumers= packet.getItems();
     }
     public static void saveCostomers(){

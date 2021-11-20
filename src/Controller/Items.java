@@ -12,6 +12,7 @@ public class Items {
 
     public static void fetchAndSetItems(){
         Packet<Item> packet = itemController.get(new Packet<>(3));
+        if(packet!=null)
         items= packet.getItems();
     }
 

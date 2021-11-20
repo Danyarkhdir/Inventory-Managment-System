@@ -1,11 +1,14 @@
 package View;
 import Controller.*;
+import Model.Order;
+
 import java.util.Scanner;
 public class OrderView {
 static Scanner sc = new Scanner(System.in);
 public static void orderView(){
     boolean bol=true;
     while (bol) {
+        options();
     System.out.print("Choose an Option : ");
     int choice=sc.nextInt();
     switch (choice) {
@@ -65,7 +68,8 @@ public static void orderView(){
     }
 
     public static void showOrder() {
-        System.out.println(Orders.orderedItems);
+        Orders.fetchAndSetOrders();
+    System.out.println(Orders.orderedItems);
     }
 
 }

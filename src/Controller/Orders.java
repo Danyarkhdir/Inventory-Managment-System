@@ -11,6 +11,7 @@ public class Orders {
 
     public static void fetchAndSetOrders(){
         Packet<Item> packet = orderController.get(new Packet<>(5));
+        if(packet!=null)
         orderedItems= packet.getItems();
     }
     public static  void saveOrders(){
