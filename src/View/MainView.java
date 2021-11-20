@@ -59,13 +59,9 @@ public class MainView {
             System.out.print("Enter Password : ");
             String password = scanner.next();
             scanner.nextLine();
-            Admin newAdmin = new Admin(userName, password);
-            Admins.addAdmin(newAdmin);
-            if (Admins.addAdmin) {
-                AdminView.login();
-            } else
-                System.out.println("Code is Incorrect");
-        }
+            Admins.addAdmin(new Admin(userName, password));
+        }else
+            System.out.println("Administrator Code Incorrect");
     }
     public static void logInView(){
         Admins.fetchAndSetAdmins();
@@ -114,14 +110,18 @@ public class MainView {
             System.out.println("Incorrect Code");
     }
     public static void deleteAdmin(){
-        System.out.print("Enter Admin Username : ");
-        String username = scanner.next();
-        if(Admins.findAdmin(username)!=-1) {
-            System.out.println("Admin with username " +username+" Deleted");
-            Admins.deleteAdmin(username);
+        System.out.print("Enter Administrator Code : ");
+        String code = scanner.next();
+        scanner.nextLine();
+        if (code.equals(adminstratorCode)) {
+            System.out.print("Enter Admin Username : ");
+            String username = scanner.next();
+            if (Admins.findAdmin(username) != -1) {
+                System.out.println("Admin with username " + username + " Deleted");
+                Admins.deleteAdmin(username);
+            } else
+                System.out.println("No Admin with this Username");
         }
-        else
-            System.out.println("No Admin with this Username");
 
     }
 }

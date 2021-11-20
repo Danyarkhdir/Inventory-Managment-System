@@ -49,7 +49,7 @@ public class Admins {
         }
         else{
             admins.remove(adminIndex);
-            System.out.println("costumer with Id : " + username + " was successfully deleted.");
+            System.out.println("Admin " + username + " was successfully deleted.");
             delAdmin=true;
             saveAdmins();
         }

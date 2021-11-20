@@ -3,6 +3,7 @@ import java.util.Scanner;
 import Controller.*;
 import Model.Costumer;
 import Model.Item;
+import Model.Order;
 
 public class AdminView {
     public AdminView(){
@@ -92,7 +93,6 @@ public class AdminView {
      Costumers.addCostumer(new Costumer(id,name,phone,address));
      if(Costumers.addcostumer) {
          System.out.println("Enter Items That Costumer Ordered :");
-         OrderView.options();
          OrderView.orderView();
      }
    }
@@ -145,7 +145,7 @@ public class AdminView {
         Items.deleteItem(id);
     }
     else
-        System.out.println("No Item with this ID");
+       System.out.println("Item Deleted successfully");
     
    }
    public static void updateItem(){
@@ -170,7 +170,6 @@ public class AdminView {
             scanner.nextLine();
             int count=0;
             if (Admins.admins.get(adminIndex).getPassword().equals(oldPassword)) {
-            while(count<5) {
                 System.out.println("Enter New Password : ");
                 String newPassword = scanner.next();
                 scanner.nextLine();
@@ -184,7 +183,7 @@ public class AdminView {
                 else { count++;
                     System.out.println("Entered two Passwords not equal");
                 }
-            }
+
             }else System.out.println("Old Password Incorrect");
         }
 

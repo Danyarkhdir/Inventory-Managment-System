@@ -21,8 +21,10 @@ public class ClientServerConnection {
             System.out.println("Connecting to server Successful");
         } catch (FileNotFoundException e) {
             System.out.println("File not found SocketController*");
+            System.exit(1);
         } catch (IOException e) {
             System.out.println("Error initializing stream"+e.getMessage());
+            System.exit(1);
         }
     }
 
