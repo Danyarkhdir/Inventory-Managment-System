@@ -71,7 +71,7 @@ public class MainView {
             String username=scanner.next();
             System.out.print("Enter PASSWORD : ");
             String password=scanner.next();
-            if (isPreset(username,password)) {
+            if (isPresent(username,password)) {
                 Username=username;
                 AdminView.login();
                 break;
@@ -88,7 +88,7 @@ public class MainView {
         }
 
     }
-    public static boolean isPreset(String username , String password){
+    public static boolean isPresent(String username , String password){
         for (int i = 0; i < Admins.admins.size(); i++) {
             Admin admin = Admins.admins.get(i);
             if (admin.getUsername().equals(username)&&admin.getPassword().equals(password)) {

@@ -32,6 +32,6 @@ public class Costumer implements Serializable {
     public String getAddress() { return address; }
     
     public String toString() {
-        return "\ncostumerId : "+costumerId+"\nCostumer Name : "+name+"\nPhone Number : +964"+phoneNumber+"\naddress : "+address+"\n";
+        return "\ncostumerId : "+costumerId+"\nCostumer Name : "+name+"\nPhone Number : +964"+phoneNumber+"\naddress : "+address+"\n\n";
     }
 }

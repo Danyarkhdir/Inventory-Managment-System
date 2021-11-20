@@ -114,8 +114,7 @@ public class AdminView {
         String phone = scanner.next();
         System.out.print("Enter Address : ");
         String address = scanner.next();
-        Costumer costumer=new Costumer(costumerId, name, phone, address);
-         Costumers.updateCostumer(costumer);
+         Costumers.updateCostumer(new Costumer(costumerId, name, phone, address));
          Costumers.saveCostomers();
        }
        
@@ -168,7 +167,6 @@ public class AdminView {
             System.out.println("Enter Old Password : ");
             String oldPassword=scanner.next();
             scanner.nextLine();
-            int count=0;
             if (Admins.admins.get(adminIndex).getPassword().equals(oldPassword)) {
                 System.out.println("Enter New Password : ");
                 String newPassword = scanner.next();
@@ -180,8 +178,8 @@ public class AdminView {
                     Admins.admins.get(adminIndex).setPassword(newPassword);
                 Admins.saveAdmins();
                 }
-                else { count++;
-                    System.out.println("Entered two Passwords not equal");
+                else {
+                    System.out.println("Entered Two New Passwords not equal");
                 }
 
             }else System.out.println("Old Password Incorrect");

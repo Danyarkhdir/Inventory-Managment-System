@@ -1,6 +1,5 @@
 package View;
 import Controller.*;
-import Model.Order;
 
 import java.util.Scanner;
 public class OrderView {
@@ -27,9 +26,6 @@ public static void orderView(){
         case 5:
             Orders.totalPrice();
             break;
-        case 6:
-            options();
-            break;
         case 0:
             bol=false;
             break;
@@ -45,7 +41,6 @@ public static void orderView(){
         System.out.println("3. show available items");
         System.out.println("4. show current order");
         System.out.println("5. TotalPrice");
-        System.out.println("6. Options");
         System.out.println("0. Exit");
     }
     public static void addItemtoOrder(){

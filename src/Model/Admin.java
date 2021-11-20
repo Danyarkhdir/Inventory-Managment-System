@@ -29,6 +29,6 @@ public class Admin implements Serializable {
 
 
     public  String toString() {
-        return "Username : [ "+username+" ] \nPassword : [ "+password+" ] \n" ;
+        return "Username : [ "+username+" ] \nPassword : [ "+password+" ] \n\n" ;
     }
 }

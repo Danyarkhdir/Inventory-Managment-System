@@ -26,7 +26,7 @@ public class Item implements Serializable {
     public String getItemName() { return itemName; }
     public double getItemPrice() { return itemPrice; }
     public String toString() {
-        return "Item Id : "+itemId+"\nItem Name : "+itemName+"\nItem Price : "+itemPrice+"\n";
+        return "Item Id : "+itemId+"\nItem Name : "+itemName+"\nItem Price : "+itemPrice+"\n\n";
     }
     
         

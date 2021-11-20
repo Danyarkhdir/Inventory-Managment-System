@@ -32,27 +32,4 @@ public class ClientServerController<T> {
 
     }
 
-    public boolean post(Packet<T> packet){
-        try {
-            ClientServerConnection.objectOut.writeObject(packet);
-            ClientServerConnection.objectOut.flush();
-            Packet<T> response = (Packet<T>) ClientServerConnection.objectIn.readObject();
-
-            int message = response.getMessage();
-            return message == 1;
-
-        } catch (FileNotFoundException e){
-            System.out.println("File not found Exception. #ClientServerController*addMovie"+ packet.getMessage());
-            return false;
-        } catch (IOException e){
-            System.out.println("Error initializing stream. #ClientServerController*addMovie"+ packet.getMessage());
-            return false;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }catch (NullPointerException e){
-            System.out.println("NullPointerException #ClientServerController*saveListToFile");
-        }
-        return true;
-    }
-
 }

@@ -23,28 +23,30 @@ public static ClientServerController<Costumer> customerController = new ClientSe
     }
 
         public static void addCostumer(Costumer costumer){
-            fetchAndSetCustomer();
+
             int costumerindex = findCostumer(costumer.getCostumerId());
             if (costumerindex > -1) {
-                System.out.println("costumer with  id [ "+costumer.getCostumerId()+" ] is already exist , cannot add");
+                System.out.println("Costumer with  id [ "+costumer.getCostumerId()+" ] is already exist , cannot add");
                 addcostumer=false;
             }
             else{
+                fetchAndSetCustomer();
             costumers.add(costumer);
-            System.out.println("costumer with id [ "+costumer.getCostumerId()+" ] added");
+            System.out.println("Costumer with id [ "+costumer.getCostumerId()+" ] added");
             addcostumer=true;
             saveCostomers();
             }
             
         }
         public static void deleteCostumer(int costumerId) {
-        fetchAndSetCustomer();
+
             int costumerindex = findCostumer(costumerId);
             if (costumerindex == -1) {
                 System.out.println("no costumer with Id  [ " + costumerId + " ] is available.\ndeleting costumer failed.");
                 delcostumer=false;
             }
             else{
+                fetchAndSetCustomer();
             costumers.remove(costumerindex);
             System.out.println("costumer with Id : " + costumerId + " was successfully deleted.");
             delcostumer=true;

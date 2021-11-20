@@ -16,7 +16,8 @@ public class Admins {
         Packet<Admin> packet = adminController.get(new Packet<>(7));
         if (packet==null){
             saveAdmins();
-            admins= packet.getItems();}
+            admins= packet.getItems();
+        }
         admins= packet.getItems();
 
 
@@ -28,12 +29,12 @@ public class Admins {
     }
 
     public static void addAdmin(Admin admin){
-         fetchAndSetAdmins();
         int adminIndex = findAdmin(admin.getUsername());
         if (adminIndex!=-1) {
             System.out.println("Another Admin with this Username Exist");
             addAdmin=false;
         } else {
+            fetchAndSetAdmins();
             admins.add(admin);
             addAdmin=true;
             saveAdmins();
@@ -41,13 +42,13 @@ public class Admins {
 
     }
     public static void deleteAdmin(String username) {
-        fetchAndSetAdmins();
         int adminIndex = findAdmin(username);
         if (adminIndex == -1) {
             System.out.println("Admin with This Username not Exist");
             delAdmin=false;
         }
         else{
+            fetchAndSetAdmins();
             admins.remove(adminIndex);
             System.out.println("Admin " + username + " was successfully deleted.");
             delAdmin=true;
@@ -64,8 +65,6 @@ public class Admins {
                     return i;
                 }
             }
-            else
-                System.out.println("name is null");
         }
         return -1;
     }
